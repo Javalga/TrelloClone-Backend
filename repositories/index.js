@@ -1,7 +1,7 @@
-import UserRepository from "./children/userRepository";
+import UserRepository from "./userRepository.js";
 
-export default function getRepositoryInstances (fastify){
-  return ({
-    userRepository: new UserRepository(fastify)
-  })
+export default function getRepositoryInstances(fastify) {
+  return {
+    userRepository: new UserRepository(fastify),
+  };
 }

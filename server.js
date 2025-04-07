@@ -1,39 +1,38 @@
-import Fastify from 'fastify'
-import path from 'node:path'
-import { fileURLToPath } from 'url'
-import dotenv from 'dotenv'
-import AutoLoad from '@fastify/autoload'
+import Fastify from "fastify";
+import path from "node:path";
+import { fileURLToPath } from "url";
+import dotenv from "dotenv";
+import AutoLoad from "@fastify/autoload";
 
-// Convertir import.meta.url a __dirname
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Cargar variables de entorno
-dotenv.config()
+dotenv.config();
 
+export const options = {};
 
-export const options = {}
-
-const fastify = Fastify()
-  
-fastify.register(AutoLoad, {
-  dir: path.join(__dirname, 'plugins'),
-  options: { ...options }
-})
+const fastify = Fastify();
 
 fastify.register(AutoLoad, {
-  dir: path.join(__dirname, 'routes'),
-  options: { ...options }
-})
+  dir: path.join(__dirname, "plugins")
+});
 
+fastify.register(AutoLoad, {
+  dir: path.join(__dirname, "routes")
+});
+fastify.addHook("onReady", async () => {
+  console.log(fastify.printRoutes());
+});
 const start = async () => {
   try {
-    fastify.listen({ port: process.env.PORT || 3000 })
-    console.log(`Servidor corriendo en http://localhost:${process.env.PORT || 3000}`)
+    fastify.listen({ port: process.env.PORT || 3000 });
+    console.log(
+      `Servidor running on http://localhost:${process.env.PORT || 3000}`
+    );
   } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
+    fastify.log.error(err);
+    process.exit(1);
   }
-}
+};
 
-start()
+start();
