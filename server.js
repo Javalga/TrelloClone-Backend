@@ -14,15 +14,17 @@ export const options = {};
 const fastify = Fastify();
 
 fastify.register(AutoLoad, {
-  dir: path.join(__dirname, "plugins")
+  dir: path.join(__dirname, "plugins"),
 });
 
 fastify.register(AutoLoad, {
-  dir: path.join(__dirname, "routes")
+  dir: path.join(__dirname, "routes"),
 });
+
 fastify.addHook("onReady", async () => {
   console.log(fastify.printRoutes());
 });
+
 const start = async () => {
   try {
     fastify.listen({ port: process.env.PORT || 3000 });

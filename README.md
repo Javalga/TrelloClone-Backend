@@ -12,4 +12,4 @@ For production mode
 ### Users ###
 
 ### Getters --> /users : Gets all users || /users/by : Gets an user by a key value pair
-### Setters --> /users/create : Creates a new User || /users/updateById : Updates an user by ID
+### Setters --> /users/create : Creates a new User || /users/update : Updates an user by ID
