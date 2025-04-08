@@ -11,8 +11,8 @@ export default fp(async function (fastify, opts) {
     await client.connect();
     fastify.decorate("db", client);
   } catch (err) {
-    console.error("Error de conexión a la base de datos:", err.message);
-    fastify.log.error("Error de conexión a la base de datos:", err);
+    console.error("Error connecting to the db:", err.message);
+    fastify.log.error("Error connecting to the db:", err);
     process.exit(1);
   }
 });
