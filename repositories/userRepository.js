@@ -6,15 +6,7 @@ export default class UserRepository extends Repository {
     super(fastify, "users");
     this.fastify = fastify;
   }
-
-  async getAll() {
-    return await super.getAll();
-  }
-
-  async getBy(key, value) {
-    return await super.getBy(key, value);
-  }
-
+  
   async register(data) {
     const newUser = User.fromObject(data);
     const isValid = User.validate(newUser);
