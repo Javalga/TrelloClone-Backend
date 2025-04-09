@@ -4,14 +4,14 @@ export default class User {
     id,
     full_name,
     email,
-    password_hash,
+    password,
     created_at,
     updated_at,
   ) {
     this.id = id;
     this.full_name = full_name;
     this.email = email;
-    this.password_hash = password_hash;
+    this.password = password;
     this.created_at = created_at
     this.updated_at = updated_at
   }
@@ -26,7 +26,7 @@ export default class User {
         check: (val) => val && /^\S+@\S+\.\S+$/.test(val),
         desc: "A valid email is required",
       },
-      password_hash: {
+      password: {
         check: (val) => val && typeof val === "string",
         desc: "Password hash is required",
       },
@@ -52,7 +52,7 @@ export default class User {
       obj.id ?? uuidv4(),
       obj.full_name,
       obj.email,
-      obj.password_hash
+      obj.password
     );
   }
 
@@ -61,7 +61,7 @@ export default class User {
       id: this.id,
       full_name: this.full_name,
       email: this.email,
-      password_hash: this.password_hash,
+      password: this.password,
       created_at: this.created_at ? this.created_at.toISOString() : null,
       updated_at: this.updated_at ? this.updated_at.toISOString() : null,
       role: this.role,
