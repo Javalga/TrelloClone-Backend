@@ -55,16 +55,4 @@ export default class User {
       obj.password
     );
   }
-
-  toJson() {
-    return {
-      id: this.id,
-      full_name: this.full_name,
-      email: this.email,
-      password: this.password,
-      created_at: this.created_at ? this.created_at.toISOString() : null,
-      updated_at: this.updated_at ? this.updated_at.toISOString() : null,
-      role: this.role,
-    };
-  }
 }
