@@ -1,13 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
 
 export default async function auth(fastify) {
-  fastify.post("/login", { preHandler: [fastify.authenticate] }, async (request, reply) => {
+  fastify.post("/login", async (request, reply) => {
     try {
       let response = await fastify.userRepository.login(request.body.email, request.body.password)
       console.log(response)
       return reply.send({ user: response.user, token: response.token })
     } catch (error) {
-      console.log('dasdsad');
       reply.code(401).send({error: error.message})
     }
   });
@@ -15,8 +14,6 @@ export default async function auth(fastify) {
   fastify.post('/register', async (request, reply) => {
     try {
       const response = await fastify.userRepository.register(request.body)
-      console.log('response', response)
-
       return reply.send({
         message: 'User registered successfully',
         token: response.token
