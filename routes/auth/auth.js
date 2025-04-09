@@ -4,7 +4,6 @@ export default async function auth(fastify) {
   fastify.post("/login", async (request, reply) => {
     try {
       let response = await fastify.userRepository.login(request.body.email, request.body.password)
-      console.log(response)
       return reply.send({ user: response.user, token: response.token })
     } catch (error) {
       reply.code(401).send({error: error.message})

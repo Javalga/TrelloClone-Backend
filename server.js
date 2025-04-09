@@ -29,7 +29,7 @@ const start = async () => {
   try {
     fastify.listen({ port: process.env.PORT || 3000 });
     console.log(
-      `Servidor running on http://localhost:${process.env.PORT || 3000}`
+      `Server running on http://localhost:${process.env.PORT || 3000}`
     );
   } catch (err) {
     fastify.log.error(err);
