@@ -11,5 +11,8 @@ For production mode
 
 ### Users ###
 
-### Getters --> /users : Gets all users || /users/by : Gets an user by a key value pair
-### Setters --> /users/create : Creates a new User || /users/update : Updates an user by ID
+### Getters --> GET /users : Gets all users
+###             GET /users/by : Gets an user by a key value pair  // {key: @String, value: @any }
+### Setters --> POST /users/update : Updates an user by ID // { @User } **Check User class**
+### Login / Register --> POST /auth/login: Logs in and returns the user and a token // {email: @String: password: @String}
+###                      POST /auth/register Register a new user in the db and grants him a new token // { @User }
