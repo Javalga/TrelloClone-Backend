@@ -11,14 +11,15 @@ For production mode
 
 ### Users ###
 
-### Getters --> GET /users : Gets all users
-###             GET /users/by : Gets an user by a key value pair  // {key: @String, value: @any }
-### Setters --> POST /users/update : Updates an user by ID // { @User } **Check User Model**
-### Login / Register --> POST /auth/login: Logs in and returns the user and a token // {email: @String: password: @String}
-###                      POST /auth/register Register a new user in the db and grants him a new token // { @User }
+  ### Getters --> GET /users : Gets all users
+  ###             GET /users/by : Gets an user by a key value pair  // {key: @String, value: @any }
+  ### Setters --> POST /users/update : Updates an user by ID // { @User } **Check User Model**
+
+  ### Login / Register --> POST /auth/login: Logs in and returns the user and a token // {email: @String: password: @String}
+  ###                      POST /auth/register Register a new user in the db and grants him a new token // { @User }
 
 
 ## .env
 
-## DATABASE_URL='YOUR_DATABASE_STRING'
-## JWT_KEY='YOUR_JWT_KEY'
+  ## DATABASE_URL='YOUR_DATABASE_STRING'
+  ## JWT_KEY='YOUR_JWT_KEY'
